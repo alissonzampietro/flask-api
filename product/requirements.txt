@@ -1,2 +1,2 @@
 Flask
-flask-restful
+python-dotenv
