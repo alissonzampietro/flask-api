@@ -2,7 +2,7 @@ version: '3'
 services: 
     product-service:
         build: ./api-nasa/
-        volumes: 
+        volumes:
             - ./api-nasa/:/usr/src/app/
         ports: 
             - 5000:5000
