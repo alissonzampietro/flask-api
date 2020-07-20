@@ -63,6 +63,15 @@ RUN pip install requirements.txt
 CMD ["python", "app.py"]
 ```
 
-```FROM python:3.6``` We set the image that we wanna use, in our case lets
-use the python in version 3.6.
+Let's check each line:
 
+```python
+FROM python:3.6
+``` 
+We set the image that we wanna use, in our case lets
+use the python in version 3.6. If the image is not listed in your computer (open the terminal and type *docker images*), it's going to search and download on [Docker Hub](https://http://hub.docker.com/link).
+
+```python
+RUN mkdir /usr/src/app/
+``` 
+*Run* is used to run operations inside the container, for sample, if you want to install any program additional, you just use the command *RUN apt-get install whatever -y*. In this case, we're creating the folder where our application will be.
