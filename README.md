@@ -1,12 +1,10 @@
-# Using docker-compose to build a simple flask api
-
 Today, i waked up with a great idea: **Learn how to build a docker-compose from scratch**.
 
 Actually, on my linux machine, i don't have any development environment prepared to run something, because i've thinking about a big goal, that is run everything on docker. Yeap, i don't even wanna install any package manager. I don't have experience working with python, but i wanna use it to build my first environment.
 
 If you have no idea what docker is, i recommend [watch this video](https://www.youtube.com/watch?v=pGYAg7TMmp0) [and this one](https://www.youtube.com/watch?v=YFl2mCHdv24) that will give an overview of how docker works.
 
-For installing the Docker [follow the instructions](https://docs.docker.com/engine/install/ubuntu/) and [this one to install docker-compose](https://docs.docker.com/compose/install/)
+For installing the Docker [follow the instructions](https://docs.docker.com/engine/install/ubuntu/) and [this one to install docker-compose](https://docs.docker.com/compose/install/).
 
 ### What's docker compose?
 In short, docker-compose works as a manager of docker containers. Let's supose that you are creating a web app where you are going to split it in 3 differents containers (front-end, api, database). This way, you may create a dockerfile for each environment individually.
@@ -167,3 +165,9 @@ After everything is ready, let's run our docker-compose file.
 ```shell
     docker-compose up
 ```
+
+This should be the result:
+
+![Output docker-compose](https://dev-to-uploads.s3.amazonaws.com/i/c478fnbz58jxpvv7y0im.png)
+
+You can checkout the project on [my github](https://github.com/alissonzampietro/flask-api). See you folks.
