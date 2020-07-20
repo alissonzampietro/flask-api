@@ -9,3 +9,14 @@ services:
         environment: 
             PORT: 5000
             FLASK_DEBUG: 1
+        networks: 
+            - arpanet 
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: alisson123
+        networks: 
+            - arpanet
+    networks: 
+        - arpanet

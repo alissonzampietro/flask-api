@@ -73,35 +73,49 @@ FROM python:3.6
 We set the image that we wanna use, in our case lets
 use the python in version 3.6. If the image is not downloaded in your computer (open the terminal and type *docker images*), it's going to search and download on [DockerHub](https://http://hub.docker.com/link). This part is really interesting, because this dockerfile, won't generate a container, but an image, and you can upload to docker hub to use in the future.
 
+*** 
+
 ```python
 RUN mkdir /usr/src/app/
 ``` 
 *Run* is used to run operations inside the container, for sample, if you want to install any additional program, you just use the command *RUN apt-get install whatever -y*. In this case, we're creating the folder where our application will be.
+
+*** 
 
 ```python
 COPY . /usr/src/app/
 ``` 
 It's going to copy everything from *./* local directory and move to */usr/src/app/* host directory.
 
+*** 
+
 ```python
 WORKDIR /usr/src/app/
 ``` 
 It sets the path where the *CMD* and the *RUN* commands will run.
+
+*** 
 
 ```python
 EXPOSE 5000
 ``` 
 Exposes the port 5000 of the container to be external accessed.
 
+*** 
+
 ```python
 RUN pip install -r requirements.txt
 ``` 
 Executes when the image is been generated. It works for when you want to install something in the image.
 
+*** 
+
 ```python
 CMD ["python", "app.py"]
 ``` 
 It sets the command that's going to run when the container starts. We've defined the startup of our application.
+
+******
 
 
 ### docker-compose
@@ -128,17 +142,21 @@ version: '3'
 ``` 
 here you define the version of docker-compose that you're using. Actually the current is the 3.
 
+*** 
+
 ```python
     api-service:
 ``` 
 It's our api service. 
 
+*** 
 
 ```python
         build: ./api-nasa/
 ```
 In this section, we say to docker-compose the path where our Dockerfile is.
 
+*** 
 
 ```python
         volumes: 
@@ -146,11 +164,15 @@ In this section, we say to docker-compose the path where our Dockerfile is.
 ```
 Volumes are the way that we sync the files in our local computer to our containers. We can define volumes in Dockerfiles but only if you're handling container straight, but,how the handler of our container is docker-compose, we are defining them here. 
 
+*** 
+
 ```python
         ports: 
             - 5000:5000
 ```
 We've talked about PORTS in Dockerfile, but here we can set a port on our localhost where you can access the container. Really cool, not? Basically we are saying: "Listen the port 5000 in our container and set the port 5000 to your localhost".
+
+*** 
 
 ```python
         environment: 
@@ -159,6 +181,7 @@ We've talked about PORTS in Dockerfile, but here we can set a port on our localh
 ```
 It's really interesing, you can define environment variables and get them in the language that you're going to use. You can checkout in the python file *api-nasa/app.py* the code snippet **os.getenv('PORT')**.
 
+******
 
 After everything is ready, let's run our docker-compose file.
 
