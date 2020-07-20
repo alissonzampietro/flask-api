@@ -1,3 +1,5 @@
+# Using docker-compose to build a simple flask api
+
 Today, i waked up with a great idea: **Learn how to build a docker-compose from scratch**.
 
 Actually, on my linux machine, i don't have any development environment prepared to run something, because i've thinking about a big goal, that is run everything on docker. Yeap, i don't even wanna install any package manager. I don't have experience working with python, but i wanna use it to build my first environment.
